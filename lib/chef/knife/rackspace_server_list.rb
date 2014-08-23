@@ -34,16 +34,19 @@ class Chef
           ui.color('Name', :bold),
           ui.color('Public IP', :bold),
           ui.color('Private IP', :bold),
+          ui.color('Extra IP', :bold),
           ui.color('Flavor', :bold),
           ui.color('Image', :bold),
           ui.color('State', :bold)
         ]
+        columns_length = server_list.size
         connection.servers.all.each do |server|
           server = connection.servers.get(server.id)
           server_list << server.id.to_s
           server_list << server.name
           server_list << ip_address(server, 'public')
           server_list << ip_address(server, 'private')
+          server_list << ip_address(server, 'Testies') or nil
           server_list << (server.flavor_id == nil ? "" : server.flavor_id.to_s)
           server_list << (server.image_id == nil ? "" : server.image_id.to_s)
           server_list << begin
@@ -57,7 +60,7 @@ class Chef
             end
           end
         end
-        puts ui.list(server_list, :uneven_columns_across, 7)
+        puts ui.list(server_list, :uneven_columns_across, columns_length)
       end
     end
   end
