@@ -41,6 +41,7 @@ class Chef
         ]
         columns_length = server_list.size
         connection.servers.all.each do |server|
+          ap server
           server = connection.servers.get(server.id)
           server_list << server.id.to_s
           server_list << server.name
