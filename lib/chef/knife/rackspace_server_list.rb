@@ -30,11 +30,11 @@ class Chef
         $stdout.sync = true
 
         server_list = [
-          ui.color('Instance ID', :bold),
+          ui.color('Instance_ID', :bold),
           ui.color('Name', :bold),
-          ui.color('Public IP', :bold),
-          ui.color('Private IP', :bold),
-          ui.color('Extra IP', :bold),
+          ui.color('Public_IP', :bold),
+          ui.color('Private_IP', :bold),
+          ui.color('VPN', :bold),
           ui.color('Flavor', :bold),
           ui.color('Image', :bold),
           ui.color('State', :bold)
