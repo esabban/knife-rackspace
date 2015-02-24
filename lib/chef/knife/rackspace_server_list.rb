@@ -47,7 +47,7 @@ class Chef
           server_list << server.name
           server_list << ip_address(server, 'public')
           server_list << ip_address(server, 'private')
-          server_list << (ip_address(server, 'Testies') == nil ? "None")
+          server_list << ip_address(server, 'Testies') or 'None'.to_s
           server_list << (server.flavor_id == nil ? "" : server.flavor_id.to_s)
           server_list << (server.image_id == nil ? "" : server.image_id.to_s)
           server_list << begin
