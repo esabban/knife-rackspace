@@ -17,6 +17,7 @@
 #
 
 require 'chef/knife/rackspace_base'
+require 'awesome_print'
 
 class Chef
   class Knife
