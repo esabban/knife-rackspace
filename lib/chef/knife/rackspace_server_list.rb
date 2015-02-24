@@ -35,20 +35,19 @@ class Chef
           ui.color('Name', :bold),
           ui.color('Public_IP', :bold),
           ui.color('Private_IP', :bold),
-          ui.color('VPN', :bold),
+          ui.color('Testies', :bold),
           ui.color('Flavor', :bold),
           ui.color('Image', :bold),
           ui.color('State', :bold)
         ]
         columns_length = server_list.size
         connection.servers.all.each do |server|
-          ap server
           server = connection.servers.get(server.id)
           server_list << server.id.to_s
           server_list << server.name
           server_list << ip_address(server, 'public')
           server_list << ip_address(server, 'private')
-          server_list << ip_address(server, 'VPN') or 'None'
+          server_list << ip_address(server, 'Testies') or 'None'
           server_list << (server.flavor_id == nil ? "" : server.flavor_id.to_s)
           server_list << (server.image_id == nil ? "" : server.image_id.to_s)
           server_list << begin
